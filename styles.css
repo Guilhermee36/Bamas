@@ -75,6 +75,8 @@ h1, h2, h3 {
     position: relative;
     height: 50vh; /* Ajuste a altura para cobrir apenas a área acima do título */
     overflow: hidden;
+    margin-top: 0; /* Remove qualquer margem superior */
+    padding-top: 0; /* Remove qualquer padding superior */
 }
 
 .slideshow-container {
@@ -253,6 +255,23 @@ footer {
     background-color: var(--color-light);
     padding: 1.5rem;
     border-radius: 8px;
+}
+
+/* Estilo da seção de história */
+.history {
+    text-align: center; /* Centraliza o título principal */
+    padding: 2rem 10%;
+}
+
+.history-content {
+    max-width: 800px; /* Define uma largura máxima para o conteúdo */
+    margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+    text-align: justify; /* Justifica o texto */
+}
+
+.history-content article p {
+    margin-bottom: 1rem; /* Adiciona espaçamento entre os parágrafos */
+    line-height: 1.8; /* Melhora a legibilidade */
 }
 
 /* Estilos para a página de Eventos */
@@ -470,4 +489,62 @@ footer {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Estilo do menu hambúrguer */
+.burger {
+    display: none; /* Esconde o hambúrguer em telas grandes */
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    position: absolute; /* Permite posicionar o hambúrguer */
+    top: 1rem; /* Ajuste a posição vertical */
+    right: 1rem; /* Posiciona o hambúrguer à direita */
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-secondary); /* Define a cor laranja */
+    transition: all 0.3s ease;
+}
+
+/* Exibir o menu hambúrguer em telas menores */
+@media (max-width: 768px) {
+    .burger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none; /* Esconde os links inicialmente */
+        flex-direction: column;
+        position: static; /* Permite que o menu ocupe seu próprio espaço */
+        background-color: var(--color-primary);
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    .nav-links.active {
+        display: flex; /* Exibe os links quando ativo */
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    .nav-links a {
+        color: var(--color-light);
+        font-size: 1.2rem;
+    }
+
+    /* Ajustar o layout para empurrar o conteúdo para baixo */
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.nav-links.active + .hero {
+    margin-top: 60px; /* Adiciona espaço abaixo do menu quando ativo */
 }
