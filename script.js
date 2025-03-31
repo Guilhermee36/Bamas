@@ -50,71 +50,103 @@ function setupHomePage() {
     }
 }
 
-// Página de Eventos
 function setupEventsPage() {
-    if (document.querySelector('.calendar-days')) {
-        const events = [
-            {date: '15/10/2023', title: 'Desfile Cívico', location: 'Centro da Cidade'},
-            {date: '20/11/2023', title: 'Festa da Música', location: 'Teatro Municipal'},
-            {date: '05/12/2023', title: 'Apresentação de Final de Ano', location: 'Escola Saad Bechara'}
-        ];
-        
-        // Renderizar eventos na lista
-        const eventsList = document.getElementById('events-list');
+    const events = [
+        { date: '15/10/2023', title: 'Desfile Cívico', location: 'Centro da Cidade' },
+        { date: '20/11/2023', title: 'Festa da Música', location: 'Teatro Municipal' },
+        { date: '05/12/2023', title: 'Apresentação de Final de Ano', location: 'Escola Saad Bechara' }
+    ];
+
+    const eventsList = document.getElementById('events-list');
+    const calendarDays = document.getElementById('calendar-days');
+    const currentMonthEl = document.getElementById('current-month');
+    const prevMonthBtn = document.getElementById('prev-month');
+    const nextMonthBtn = document.getElementById('next-month');
+
+    let currentDate = new Date();
+
+    // Renderizar eventos na lista
+    function renderEventsList() {
+        eventsList.innerHTML = '';
         events.forEach(event => {
             const eventDiv = document.createElement('div');
             eventDiv.className = 'event-card';
-            
+
             eventDiv.innerHTML = `
                 <h4>${event.title}</h4>
                 <p><strong>Data:</strong> ${event.date}</p>
                 <p><strong>Local:</strong> ${event.location}</p>
             `;
-            
+
             eventsList.appendChild(eventDiv);
         });
-        
-        // Calendário básico (simplificado)
-        const calendarDays = document.getElementById('calendar-days');
-        const currentDate = new Date();
-        const currentMonth = currentDate.getMonth();
+    }
+
+    // Renderizar calendário
+    function renderCalendar() {
+        calendarDays.innerHTML = '';
+
         const currentYear = currentDate.getFullYear();
-        
+        const currentMonth = currentDate.getMonth();
+
+        // Atualizar o título do mês
+        const monthNames = [
+            'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+            'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+        ];
+        currentMonthEl.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+
         // Primeiro dia do mês
         const firstDay = new Date(currentYear, currentMonth, 1).getDay();
-        
+
         // Número de dias no mês
         const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-        
+
         // Dias vazios no início
         for (let i = 0; i < firstDay; i++) {
             const emptyDay = document.createElement('div');
             emptyDay.className = 'calendar-day empty';
             calendarDays.appendChild(emptyDay);
         }
-        
+
         // Dias do mês
         for (let i = 1; i <= daysInMonth; i++) {
             const dayElement = document.createElement('div');
             dayElement.className = 'calendar-day';
-            
+
             dayElement.innerHTML = `
                 <div class="calendar-day-number">${i}</div>
             `;
-            
+
             // Adicionar eventos que ocorrem neste dia
             events.forEach(event => {
-                const eventDate = event.date.split('/');
-                if (parseInt(eventDate[0]) === i && parseInt(eventDate[1]) === currentMonth + 1) {
+                const [day, month, year] = event.date.split('/').map(Number);
+                if (day === i && month === currentMonth + 1 && year === currentYear) {
                     dayElement.innerHTML += `
                         <div class="event-badge">${event.title}</div>
                     `;
                 }
             });
-            
+
             calendarDays.appendChild(dayElement);
         }
     }
+
+    // Navegar para o mês anterior
+    prevMonthBtn.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        renderCalendar();
+    });
+
+    // Navegar para o próximo mês
+    nextMonthBtn.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        renderCalendar();
+    });
+
+    // Inicializar
+    renderEventsList();
+    renderCalendar();
 }
 
 // Página de Galeria
@@ -204,22 +236,22 @@ function setupContactPage() {
 }
 
 // Inicialização
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     setupMobileMenu();
-    setupHomePage();
-    setupEventsPage();
-    setupGalleryPage();
-    setupContactPage();
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-    const burger = document.querySelector(".burger");
-    const navLinks = document.querySelector(".nav-links");
+    if (document.querySelector('.slideshow-container')) {
+        setupHomePage();
+    }
 
-    if (burger && navLinks) {
-        burger.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-            burger.classList.toggle("toggle");
-        });
+    if (document.querySelector('.calendar-grid')) {
+        setupEventsPage();
+    }
+
+    if (document.querySelector('.gallery-container')) {
+        setupGalleryPage();
+    }
+
+    if (document.getElementById('contactForm')) {
+        setupContactPage();
     }
 });

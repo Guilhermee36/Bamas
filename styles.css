@@ -378,6 +378,24 @@ footer {
 
 .gallery-container {
     display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-item {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-container {
+    display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1.5rem;
 }
@@ -547,4 +565,13 @@ footer {
 
 .nav-links.active + .hero {
     margin-top: 60px; /* Adiciona espaço abaixo do menu quando ativo */
+}
+
+#calendar {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: var(--color-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
