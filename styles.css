@@ -329,9 +329,10 @@ footer {
 /* Estilos para a página de Galeria */
 .gallery-filter {
     display: flex;
-    justify-content: center;
-    gap: 1rem;
+    justify-content: center; /* Centraliza os botões horizontalmente */
+    gap: 1rem; /* Espaçamento entre os botões */
     margin-bottom: 2rem;
+    flex-wrap: wrap; /* Permite que os botões quebrem linha em telas menores */
 }
 
 .filter-btn {
@@ -341,6 +342,8 @@ footer {
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s;
+    font-size: 1rem; /* Tamanho da fonte ajustável */
+    text-align: center;
 }
 
 .filter-btn.active {
@@ -348,22 +351,36 @@ footer {
     color: white;
 }
 
+.filter-btn:hover {
+    background-color: var(--color-secondary);
+    color: white;
+}
+
 .gallery-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajusta o número de colunas automaticamente */
+    gap: 1rem; /* Espaçamento entre os itens */
+    padding: 1rem;
 }
 
 .gallery-item {
-    width: 100%;
-    height: auto;
+    overflow: hidden;
     border-radius: 8px;
+    position: relative;
+    cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
 }
 
-.gallery-item:hover {
-    transform: scale(1.05);
+.gallery-item img {
+    width: 100%; /* Garante que a imagem ocupe toda a largura do item */
+    height: auto; /* Mantém a proporção da imagem */
+    object-fit: cover; /* Ajusta o conteúdo da imagem para cobrir o espaço */
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
 }
 
 .gallery-container {
@@ -532,6 +549,15 @@ footer {
     .navbar {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Reduz o tamanho mínimo das colunas */
+        gap: 0.5rem; /* Reduz o espaçamento entre os itens */
+    }
+
+    .gallery-item img {
+        height: auto; /* Garante que as imagens se ajustem corretamente */
     }
 }
 
