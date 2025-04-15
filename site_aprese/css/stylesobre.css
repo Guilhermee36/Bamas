@@ -1,0 +1,115 @@
+*  {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #EDE7C5;
+}
+   
+
+.header_titulos h1 {
+    font-size: 2rem;
+    color: #d67004
+}
+
+.header_titulos p {
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: #1f1e1e;
+    color: #ffdb78;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #ffdb78;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.nav-links a:hover {
+    color: #d67004
+}
+
+h1,h2,h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+footer{
+    background-color: #1f1e1e;
+    color: var(--color-light);
+    text-align: center;
+    padding: 2rem;
+    margin-top: auto;
+}
+.container_sobre {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem; 
+    padding: 2rem;
+}
+
+.div_sobre {
+    flex: 0.5; 
+    padding: 1rem;
+    border-radius: 8px;
+    overflow: hidden; /* Garante que o conteúdo não ultrapasse os limites da div */
+}
+
+.div_sobre h1 {
+    margin-bottom: 1rem;
+    text-align: justify;
+    font-size: 3rem;
+    text-align: center;
+}
+.div_conquistas {
+    flex: 0.5; 
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: justify;
+}
+
+.div_conquistas h1 {
+    margin-bottom: 1.8rem;
+    text-align: justify;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.conquista_img {
+    max-width: 77%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.div_sobre p , .div_conquistas p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding: 1rem;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+
+
+

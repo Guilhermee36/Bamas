@@ -1,0 +1,135 @@
+
+*  {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #EDE7C5;
+}
+   
+
+.header_titulos h1 {
+    font-size: 2rem;
+    color: #d67004
+}
+
+.header_titulos p {
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: #1f1e1e;
+    color: #ffdb78;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #ffdb78;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.nav-links a:hover {
+    color: #d67004
+}
+
+h1,h2,h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+footer{
+    background-color: #1f1e1e;
+    color: var(--color-light);
+    text-align: center;
+    padding: 2rem;
+    margin-top: auto;
+}
+
+.container_sobre {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem 5%;
+    justify-content: space-between;
+}
+
+/* Calendário */
+.div_sobre {
+    flex: 1;
+    min-width: 300px;
+    background-color: #F5FF98;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.div_sobre h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Eventos */
+.div_conquistas {
+    flex: 1;
+    min-width: 300px;
+    background-color: #F5FF98;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.div_conquistas h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.eventos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-family: 'Montserrat', sans-serif; ;
+}
+
+.evento {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.evento h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: #1f1e1e;
+}
+
+.evento p {
+    margin: 0.2rem 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+iframe{
+    border: 0; 
+    width: 100%; 
+    height: 500px; 
+}
